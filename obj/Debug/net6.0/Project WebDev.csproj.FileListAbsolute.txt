@@ -1,0 +1,31 @@
+C:\Users\decle\source\repos\Web Development\Project WebDev\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\decle\source\repos\Web Development\Project WebDev\bin\Debug\net6.0\appsettings.json
+C:\Users\decle\source\repos\Web Development\Project WebDev\bin\Debug\net6.0\Project WebDev.staticwebassets.runtime.json
+C:\Users\decle\source\repos\Web Development\Project WebDev\bin\Debug\net6.0\Project WebDev.exe
+C:\Users\decle\source\repos\Web Development\Project WebDev\bin\Debug\net6.0\Project WebDev.deps.json
+C:\Users\decle\source\repos\Web Development\Project WebDev\bin\Debug\net6.0\Project WebDev.runtimeconfig.json
+C:\Users\decle\source\repos\Web Development\Project WebDev\bin\Debug\net6.0\Project WebDev.dll
+C:\Users\decle\source\repos\Web Development\Project WebDev\bin\Debug\net6.0\Project WebDev.pdb
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\Project WebDev.csproj.AssemblyReference.cache
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\Project WebDev.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\Project WebDev.AssemblyInfoInputs.cache
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\Project WebDev.AssemblyInfo.cs
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\Project WebDev.csproj.CoreCompileInputs.cache
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\Project WebDev.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\Project WebDev.RazorAssemblyInfo.cache
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\Project WebDev.RazorAssemblyInfo.cs
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\staticwebassets\msbuild.Project WebDev.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\staticwebassets\msbuild.build.Project WebDev.props
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Project WebDev.props
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Project WebDev.props
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\scopedcss\bundle\Project WebDev.styles.css
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\scopedcss\projectbundle\Project WebDev.bundle.scp.css
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\Project WebDev.dll
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\refint\Project WebDev.dll
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\Project WebDev.pdb
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\Project WebDev.genruntimeconfig.cache
+C:\Users\decle\source\repos\Web Development\Project WebDev\obj\Debug\net6.0\ref\Project WebDev.dll
