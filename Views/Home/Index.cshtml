@@ -1,4 +1,6 @@
-﻿<link rel="stylesheet" type="text/css" href="css/styles.css" />
+﻿@model List<Project_WebDev.Models.Item>
+
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
 
 
   <div class="container-fluid hero-banner d-flex align-items-center justify-content-center text-center">
@@ -14,33 +16,19 @@
   <div class="container mt-5">
     <h2>Featured Products</h2>
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-4 mb-3">
-        <div class="card">
-          <img src="images/ak12k-mosfet.webp" class="card-img-top" alt="Product 1">
-          <div class="card-body">
-            <h5 class="card-title">AK12K Mosfet Enhanced</h5>
-            <a href="#" class="btn btn-primary">Go to shop</a>
+        @foreach (var item in Model.Where(i => i.State == "Featured"))
+        {
+            <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <div class="card">
+              <img src=@item.Image class="card-img-top" alt="Product 1">
+              <div class="card-body">
+                <h5 class="card-title">@item.Name</h5>
+                <a href="#" class="btn btn-primary">Go to shop</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4 mb-3">
-        <div class="card">
-          <img src="images/p90-black.webp" class="card-img-top" alt="Product 1">
-          <div class="card-body">
-            <h5 class="card-title">P90 Plus</h5>
-            <a href="#" class="btn btn-primary">Go to shop</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4 mb-3">
-        <div class="card">
-          <img src="images/custom-m4.webp" class="card-img-top" alt="Product 1">
-          <div class="card-body">
-            <h5 class="card-title">Custom M4</h5>
-            <a href="#" class="btn btn-primary">Go to shop</a>
-          </div>
-        </div>
-      </div>
+        }
+      
      </div>
   </div>
 
@@ -49,7 +37,7 @@
       <div class="col-12">
         <h2>What are the rules?</h2>
         <p>Make sure you know the rules about buying and moving airsoftgear in your country! Click the button below for more information.</p>
-        <a href="#" class="btn btn-primary mt-3">More Info</a>
+        <a class="btn btn-primary mt-3" asp-action="About">More Info</a>
       </div>
     </div>
   </div>

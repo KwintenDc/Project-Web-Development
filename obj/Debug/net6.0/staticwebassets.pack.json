@@ -17,12 +17,44 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\aap-01c-assassin-semi-gbb.webp",
+      "PackagePath": "staticwebassets\\images\\aap-01c-assassin-semi-gbb.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\agency-arms-exa-gbb.webp",
+      "PackagePath": "staticwebassets\\images\\agency-arms-exa-gbb.webp"
+    },
+    {
       "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\ak12k-mosfet.webp",
       "PackagePath": "staticwebassets\\images\\ak12k-mosfet.webp"
     },
     {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\curve-fixed-slide-gnbb.webp",
+      "PackagePath": "staticwebassets\\images\\curve-fixed-slide-gnbb.webp"
+    },
+    {
       "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\custom-m4.webp",
       "PackagePath": "staticwebassets\\images\\custom-m4.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\custom-tm-hi-capa-51-silver.webp",
+      "PackagePath": "staticwebassets\\images\\custom-tm-hi-capa-51-silver.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\hx1003-gbb.webp",
+      "PackagePath": "staticwebassets\\images\\hx1003-gbb.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\hx2701-51-operator-gbb.webp",
+      "PackagePath": "staticwebassets\\images\\hx2701-51-operator-gbb.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\john-wick-4-pit-viper-gbb.webp",
+      "PackagePath": "staticwebassets\\images\\john-wick-4-pit-viper-gbb.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\p-09-gbb-tan.webp",
+      "PackagePath": "staticwebassets\\images\\p-09-gbb-tan.webp"
     },
     {
       "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\p90-black.webp",
@@ -39,6 +71,14 @@
     {
       "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\sa-j08.webp",
       "PackagePath": "staticwebassets\\images\\sa-j08.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\silencerco-maxim-9-gbb.webp",
+      "PackagePath": "staticwebassets\\images\\silencerco-maxim-9-gbb.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\vx0200-hex-cut-gbb.webp",
+      "PackagePath": "staticwebassets\\images\\vx0200-hex-cut-gbb.webp"
     },
     {
       "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\js\\site.js",
