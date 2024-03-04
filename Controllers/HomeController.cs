@@ -9,12 +9,12 @@ namespace Project_WebDev.Controllers
     {
         List<Item> items = new List<Item>
             {
-                new Item { Type = "Assault-Rifle", Name = "AK-12 Mosfet Enchanced", Price = "€483,90", Description = "AK-12 Mosfet Enchanced", State = "Featured", Image = "images/ak12k-mosfet.webp" },
-                new Item { Type = "Assault-Rifle", Name = "Custom M4", Price = "€799,90", Description = "Custom M4", State = "Featured", Image = "images/custom-m4.webp" },
-                new Item { Type = "Assault-Rifle", Name = "P90 Plus", Price = "€449,90", Description = "P90 Plus", State = "Featured", Image = "images/p90-black.webp" },
-                new Item { Type = "Assault-Rifle", Name = "G12V", Price = "€249,90", Description = "G12V", State = "ShopSold", Image = "images/sa-g12v.webp" },
-                new Item { Type = "Assault-Rifle", Name = "J08", Price = "€299,90", Description = "J08", State = "ShopSold", Image = "images/sa-j08.webp" },
-                new Item { Type = "Assault-Rifle", Name = "PP19", Price = "€369,90", Description = "PP19", State = "ShopSold", Image = "images/pp19-1-mosfet.webp" },
+                new Item { Type = "AEG-Assault-Rifle", Name = "AK-12 Mosfet Enchanced", Price = "€483,90", Description = "AK-12 Mosfet Enchanced", State = "Featured", Image = "images/ak12k-mosfet.webp" },
+                new Item { Type = "AEG-Assault-Rifle", Name = "Custom M4", Price = "€799,90", Description = "Custom M4", State = "Featured", Image = "images/custom-m4.webp" },
+                new Item { Type = "AEG-Assault-Rifle", Name = "P90 Plus", Price = "€449,90", Description = "P90 Plus", State = "Featured", Image = "images/p90-black.webp" },
+                new Item { Type = "AEG-Assault-Rifle", Name = "G12V", Price = "€249,90", Description = "G12V", State = "ShopSold", Image = "images/sa-g12v.webp" },
+                new Item { Type = "AEG-Assault-Rifle", Name = "J08", Price = "€299,90", Description = "J08", State = "ShopSold", Image = "images/sa-j08.webp" },
+                new Item { Type = "AEG-Assault-Rifle", Name = "PP19", Price = "€369,90", Description = "PP19", State = "ShopSold", Image = "images/pp19-1-mosfet.webp" },
 
             };
 

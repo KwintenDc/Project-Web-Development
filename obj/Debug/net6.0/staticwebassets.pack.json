@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\511-tactical-flex-disposable-glove-pouch-black.webp",
+      "PackagePath": "staticwebassets\\images\\511-tactical-flex-disposable-glove-pouch-black.webp"
+    },
+    {
       "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\aap-01c-assassin-semi-gbb.webp",
       "PackagePath": "staticwebassets\\images\\aap-01c-assassin-semi-gbb.webp"
     },
@@ -25,8 +29,52 @@
       "PackagePath": "staticwebassets\\images\\agency-arms-exa-gbb.webp"
     },
     {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\airsoftshop-spider-modular-plate-carrier-mpc-multi.webp",
+      "PackagePath": "staticwebassets\\images\\airsoftshop-spider-modular-plate-carrier-mpc-multi.webp"
+    },
+    {
       "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\ak12k-mosfet.webp",
       "PackagePath": "staticwebassets\\images\\ak12k-mosfet.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\arcturus-ak12-highcap-550rds.webp",
+      "PackagePath": "staticwebassets\\images\\arcturus-ak12-highcap-550rds.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\article-1-heretic-labs.webp",
+      "PackagePath": "staticwebassets\\images\\article-1-heretic-labs.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\asg-sight-protector-with-mount.webp",
+      "PackagePath": "staticwebassets\\images\\asg-sight-protector-with-mount.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\bio-bb-3200rds-020g.webp",
+      "PackagePath": "staticwebassets\\images\\bio-bb-3200rds-020g.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\bio-bb-5-pack-020g.webp",
+      "PackagePath": "staticwebassets\\images\\bio-bb-5-pack-020g.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\bio-bb-bottle-020g.webp",
+      "PackagePath": "staticwebassets\\images\\bio-bb-bottle-020g.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\bio-bb-box-020g.webp",
+      "PackagePath": "staticwebassets\\images\\bio-bb-box-020g.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\cm356-shotgun.webp",
+      "PackagePath": "staticwebassets\\images\\cm356-shotgun.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\cm366-shotgun.webp",
+      "PackagePath": "staticwebassets\\images\\cm366-shotgun.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\cm367-shotgun.webp",
+      "PackagePath": "staticwebassets\\images\\cm367-shotgun.webp"
     },
     {
       "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\curve-fixed-slide-gnbb.webp",
@@ -41,6 +89,34 @@
       "PackagePath": "staticwebassets\\images\\custom-tm-hi-capa-51-silver.webp"
     },
     {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\cytac-compact-drop-leg-platform-gen3-black.webp",
+      "PackagePath": "staticwebassets\\images\\cytac-compact-drop-leg-platform-gen3-black.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\e-c-m4-metal-midcap-160rds-black.webp",
+      "PackagePath": "staticwebassets\\images\\e-c-m4-metal-midcap-160rds-black.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\fma-td-forward-grip-m-lok-black.webp",
+      "PackagePath": "staticwebassets\\images\\fma-td-forward-grip-m-lok-black.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\g-g-arp-9-lowcap-60rds.webp",
+      "PackagePath": "staticwebassets\\images\\g-g-arp-9-lowcap-60rds.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\g-g-arp-9-midcap-170rds.webp",
+      "PackagePath": "staticwebassets\\images\\g-g-arp-9-midcap-170rds.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\g-g-drum-mag-m4-2300rds.webp",
+      "PackagePath": "staticwebassets\\images\\g-g-drum-mag-m4-2300rds.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\hexmag-m4-aeg-polymer-midcap-230rds-black.webp",
+      "PackagePath": "staticwebassets\\images\\hexmag-m4-aeg-polymer-midcap-230rds-black.webp"
+    },
+    {
       "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\hx1003-gbb.webp",
       "PackagePath": "staticwebassets\\images\\hx1003-gbb.webp"
     },
@@ -53,6 +129,50 @@
       "PackagePath": "staticwebassets\\images\\john-wick-4-pit-viper-gbb.webp"
     },
     {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\l96-aws.webp",
+      "PackagePath": "staticwebassets\\images\\l96-aws.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\lancer-tactical-aero-thermal-goggles-olive-drab.webp",
+      "PackagePath": "staticwebassets\\images\\lancer-tactical-aero-thermal-goggles-olive-drab.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\lowa-zephyr-gtx-lo-tf-black.webp",
+      "PackagePath": "staticwebassets\\images\\lowa-zephyr-gtx-lo-tf-black.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\m56b-shorty.webp",
+      "PackagePath": "staticwebassets\\images\\m56b-shorty.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\m870-tactical-gas.webp",
+      "PackagePath": "staticwebassets\\images\\m870-tactical-gas.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\midland-g9-pro.webp",
+      "PackagePath": "staticwebassets\\images\\midland-g9-pro.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\nimrod-lipo-111v-1000mah-25c-split-type-tamiya.webp",
+      "PackagePath": "staticwebassets\\images\\nimrod-lipo-111v-1000mah-25c-split-type-tamiya.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\nimrod-lipo-74v-2000mah-25c-twin-type-deans.webp",
+      "PackagePath": "staticwebassets\\images\\nimrod-lipo-74v-2000mah-25c-twin-type-deans.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\novritsch-portable-gas-container.webp",
+      "PackagePath": "staticwebassets\\images\\novritsch-portable-gas-container.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\nuprol-30-premium-gas.webp",
+      "PackagePath": "staticwebassets\\images\\nuprol-30-premium-gas.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\nuprol-mini-green.webp",
+      "PackagePath": "staticwebassets\\images\\nuprol-mini-green.webp"
+    },
+    {
       "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\p-09-gbb-tan.webp",
       "PackagePath": "staticwebassets\\images\\p-09-gbb-tan.webp"
     },
@@ -61,8 +181,16 @@
       "PackagePath": "staticwebassets\\images\\p90-black.webp"
     },
     {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\pirate-arms-m4-m16-midcap-150rds-tan.webp",
+      "PackagePath": "staticwebassets\\images\\pirate-arms-m4-m16-midcap-150rds-tan.webp"
+    },
+    {
       "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\pp19-1-mosfet.webp",
       "PackagePath": "staticwebassets\\images\\pp19-1-mosfet.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\rush-backpack-belt-kit-ranger-green.webp",
+      "PackagePath": "staticwebassets\\images\\rush-backpack-belt-kit-ranger-green.webp"
     },
     {
       "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\sa-g12v.webp",
@@ -77,8 +205,84 @@
       "PackagePath": "staticwebassets\\images\\silencerco-maxim-9-gbb.webp"
     },
     {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\specna-arms-ak-sa-j-s-mag-highcap-430rds-black.webp",
+      "PackagePath": "staticwebassets\\images\\specna-arms-ak-sa-j-s-mag-highcap-430rds-black.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\specna-arms-mp102-pistol-grip-black.webp",
+      "PackagePath": "staticwebassets\\images\\specna-arms-mp102-pistol-grip-black.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\ssg96-mk2.webp",
+      "PackagePath": "staticwebassets\\images\\ssg96-mk2.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\storm-pc1-storm.webp",
+      "PackagePath": "staticwebassets\\images\\storm-pc1-storm.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\swiss-arms-1x22x33-airgun-11mm-red-dot-sight-dovet.webp",
+      "PackagePath": "staticwebassets\\images\\swiss-arms-1x22x33-airgun-11mm-red-dot-sight-dovet.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\theta-optics-3-12x40-aoe-scope.webp",
+      "PackagePath": "staticwebassets\\images\\theta-optics-3-12x40-aoe-scope.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\theta-optics-3x35-magnifier-scope.webp",
+      "PackagePath": "staticwebassets\\images\\theta-optics-3x35-magnifier-scope.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\titan-power-111v-3000mah-li-ion-battery-nunchuck-t.webp",
+      "PackagePath": "staticwebassets\\images\\titan-power-111v-3000mah-li-ion-battery-nunchuck-t.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\ultrair-gas-570ml.webp",
+      "PackagePath": "staticwebassets\\images\\ultrair-gas-570ml.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\umarex-ux-exclusive-notos-fiber-optic-sight.webp",
+      "PackagePath": "staticwebassets\\images\\umarex-ux-exclusive-notos-fiber-optic-sight.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\vb-power-84v-1600mah-mini-type.webp",
+      "PackagePath": "staticwebassets\\images\\vb-power-84v-1600mah-mini-type.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\vb-power-96v-1600mah-nunchuck-type.webp",
+      "PackagePath": "staticwebassets\\images\\vb-power-96v-1600mah-nunchuck-type.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\vb-power-lipo-111v-1000mah-20c-stick-type.webp",
+      "PackagePath": "staticwebassets\\images\\vb-power-lipo-111v-1000mah-20c-stick-type.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\vb-power-lipo-74v-1600mah-20c-mini-type-tamiya.webp",
+      "PackagePath": "staticwebassets\\images\\vb-power-lipo-74v-1600mah-20c-mini-type-tamiya.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\vortex-optics-crossfire-red-dot-led-upgrade.webp",
+      "PackagePath": "staticwebassets\\images\\vortex-optics-crossfire-red-dot-led-upgrade.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\vsr-10-tm.webp",
+      "PackagePath": "staticwebassets\\images\\vsr-10-tm.webp"
+    },
+    {
       "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\vx0200-hex-cut-gbb.webp",
       "PackagePath": "staticwebassets\\images\\vx0200-hex-cut-gbb.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\walther-tmb-i-tbp-ii-bipod.webp",
+      "PackagePath": "staticwebassets\\images\\walther-tmb-i-tbp-ii-bipod.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\warrior-double-covered-g36-pouch-multicam.webp",
+      "PackagePath": "staticwebassets\\images\\warrior-double-covered-g36-pouch-multicam.webp"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\images\\warrior-medium-utility-pouch-multicam.jpg",
+      "PackagePath": "staticwebassets\\images\\warrior-medium-utility-pouch-multicam.jpg"
     },
     {
       "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\js\\site.js",
