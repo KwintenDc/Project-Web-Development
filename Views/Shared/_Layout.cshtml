@@ -10,21 +10,21 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
-        <a class="navbar-brand" href="#">Airsoft Webshop</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom px-3">
+        <a class="navbar-brand" asp-action="Index" >Airsoft Webshop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link" asp-action="Index">Home</a>
-            <a class="nav-item nav-link" asp-action="Shop">Shop</a>
-            <a class="nav-item nav-link" asp-action="About">About Us</a>
-            <a class="nav-item nav-link" asp-action="Contact">Contact</a>
-            <a class="nav-item nav-link" asp-action="Login">Login</a>
-          </div>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" asp-action="Index">Home</a>
+                <a class="nav-item nav-link" asp-action="Shop">Shop</a>
+                <a class="nav-item nav-link" asp-action="About">About Us</a>
+                <a class="nav-item nav-link" asp-action="Contact">Contact</a>
+                <a class="nav-item nav-link" asp-action="Login">Login</a>
+            </div>
         </div>
-        </nav>
+    </nav>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -32,7 +32,7 @@
         </main>
     </div>
 
-    <footer class="bg-dark text-light py-3 position-sticky bottom-0">
+    @*<footer class="bg-dark text-light py-3 position-sticky bottom-0">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -40,7 +40,7 @@
             </div>
         </div>
     </div>
-    </footer>
+    </footer>*@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

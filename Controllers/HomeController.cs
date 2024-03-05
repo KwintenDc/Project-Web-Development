@@ -16,6 +16,13 @@ namespace Project_WebDev.Controllers
                 new Item { Type = "AEG-Assault-Rifle", Name = "J08", Price = "€299,90", Description = "J08", State = "ShopSold", Image = "images/sa-j08.webp" },
                 new Item { Type = "AEG-Assault-Rifle", Name = "PP19", Price = "€369,90", Description = "PP19", State = "ShopSold", Image = "images/pp19-1-mosfet.webp" },
 
+                new Item { Type = "Gas-Pistol", Name = "P09", Price = "€159,99", Description = "P09", State = "ShopSold", Image = "images/p-09-gbb-tan.webp" },
+
+                new Item { Type = "HPA-Gun", Name = "Article 1", Price = "€967,90", Description = "Article 1", State = "ShopSold", Image = "images/article-1-heretic-labs.webp" },
+
+                new Item { Type = "Sniper", Name = "SSG96 mk2", Price = "€399,90", Description = "SSG96 mk2", State = "ShopSold", Image = "images/ssg96-mk2.webp" },
+
+                new Item { Type = "Shotgun", Name = "M56b Short", Price = "€59,90", Description = "M56b Short", State = "ShopSold", Image = "images/m56b-shorty.webp" },
             };
 
         private readonly ILogger<HomeController> _logger;

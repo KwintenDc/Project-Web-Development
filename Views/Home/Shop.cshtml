@@ -22,9 +22,70 @@
     </nav>
     <main class="container mt-5">
         <h2>Products</h2>
-        <div class="row">
-        @foreach (var item in Model)
-        {
+        <main class="container mt-5">
+            <div class="row" id="AEG-Assault-Rifle">
+                @foreach (var item in Model.Where(i => i.Type == "AEG-Assault-Rifle"))
+                {
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <div class="card">
+                        <img src="@Url.Content($"~/{item.Image}")" class="card-img-top" alt="@item.Name">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p>@item.Description</p>
+                            <a href="#" class="btn btn-primary">Buy</a>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+            <div class="row" id="Gas-Pistol">
+                @foreach (var item in Model.Where(i => i.Type == "Gas-Pistol"))
+                {
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <div class="card">
+                        <img src="@Url.Content($"~/{item.Image}")" class="card-img-top" alt="@item.Name">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p>@item.Description</p>
+                            <a href="#" class="btn btn-primary">Buy</a>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+            <div class="row" id="HPA-Gun">
+                @foreach (var item in Model.Where(i => i.Type == "HPA-Gun"))
+                {
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <div class="card">
+                        <img src="@Url.Content($"~/{item.Image}")" class="card-img-top" alt="@item.Name">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p>@item.Description</p>
+                            <a href="#" class="btn btn-primary">Buy</a>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+            <div class="row" id="Sniper">
+                @foreach (var item in Model.Where(i => i.Type == "Sniper"))
+                {
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <div class="card">
+                        <img src="@Url.Content($"~/{item.Image}")" class="card-img-top" alt="@item.Name">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p>@item.Description</p>
+                            <a href="#" class="btn btn-primary">Buy</a>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+            <div class="row" id="Shotgun">
+                @foreach (var item in Model.Where(i => i.Type == "Shotgun"))
+                {
                     <div class="col-12 col-md-6 col-lg-4 mb-3">
                         <div class="card">
                             <img src="@Url.Content($"~/{item.Image}")" class="card-img-top" alt="@item.Name">
@@ -35,6 +96,7 @@
                             </div>
                         </div>
                     </div>
-        }
-        </div>
+                }
+            </div>
+        </main>
     </main>
