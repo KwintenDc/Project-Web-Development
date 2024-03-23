@@ -1,0 +1,13 @@
+﻿@model Project_WebDev.Models.Item
+
+<div class="col-12 col-md-6 col-lg-4 mb-3">
+    <div class="card">
+        <img src="@Url.Content($"~/{Model.Image}")" class="card-img-top" alt="@Model.Name">
+        <div class="card-body">
+            <p>@Model.Brand</p>
+            <h5 class="card-title">@Model.Name</h5>
+            <h6>€ @Model.Price</h6>
+            <a href="#" class="btn btn-primary">Add To Cart</a>
+        </div>
+    </div>
+</div>

@@ -3,26 +3,62 @@
 
 // Write your JavaScript code.
 document.addEventListener("DOMContentLoaded", function () {
-    // Get the container element
     const container = document.getElementById("itemContainer");
+    const shopSelector = document.querySelector(".shopBar");
 
-    // Add event listener to each navbar item
-    document.querySelectorAll(".nav-link").forEach(function (navItem) {
+    shopSelector.querySelectorAll(".nav-link").forEach(function (navItem) {
         navItem.addEventListener("click", function (event) {
-            // Prevent default link behavior
             event.preventDefault();
 
-            // Get the selected item type
+            document.querySelectorAll(".nav-link").forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+            this.classList.add("active");
+
             const itemType = this.getAttribute("data-type");
 
-            // Show/hide rows based on the selected category
-            container.querySelectorAll(".row").forEach(function (row) {
-                if (row.id === itemType) {
-                    row.style.display = "flex"; // Show the row
-                } else {
-                    row.style.display = "none"; // Hide other rows
+            if (itemType != null) {
+                if (itemType != "All") {
+                    container.querySelectorAll(".itemDiv").forEach(function (row) {
+                        if (row.id === itemType) {
+                            row.style.display = "block"; 
+                        } else {
+                            row.style.display = "none"; 
+                        }
+                    });
                 }
-            });
+                else {
+                    container.querySelectorAll(".itemDiv").forEach(function (row) {
+                        row.style.display = "block";
+                    });
+                }
+            }
         });
+    });
+
+    const sortHighToLow = document.getElementById("sortHighToLow");
+    const sortLowToHigh = document.getElementById("sortLowToHigh");
+
+    sortHighToLow.addEventListener("click", function () {
+        var urlParams = new URLSearchParams(window.location.search);
+        urlParams.set('order', 'desc');
+        var newUrl = window.location.pathname + '?' + urlParams.toString();
+
+        history.pushState({}, '', newUrl);
+
+        // Refresh the page
+        window.location.reload();
+    });
+
+    sortLowToHigh.addEventListener("click", function () {
+        var urlParams = new URLSearchParams(window.location.search);
+        urlParams.set('order', 'asc');
+        var newUrl = window.location.pathname + '?' + urlParams.toString();
+
+        history.pushState({}, '', newUrl);
+
+        // Refresh the page
+        window.location.reload();
     });
 });
