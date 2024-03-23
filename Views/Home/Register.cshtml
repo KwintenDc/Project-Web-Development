@@ -1,0 +1,49 @@
+﻿<div class="container mt-5">
+    <h2>Register</h2>
+    <form action="/register" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="firstname">First Name:</label>
+                    <input type="text" class="form-control py-1 my-2" id="firstname" name="firstname" placeholder="Enter First Name">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" class="form-control py-1 my-2" id="lastname" name="lastname" placeholder="Enter Last Name">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control py-1 my-2" id="email" name="email" placeholder="Enter Email">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="number">Enter Phone Number:</label>
+                    <input type="text" class="form-control py-1 my-2" id="number" name="number" placeholder="Enter Phone Number">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control py-1 my-2" id="password" name="password" placeholder="Enter Password">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="confirmpassword">Confirm Password:</label>
+                    <input type="password" class="form-control py-1 my-2" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+        <a asp-action="Login" class="btn btn-outline-primary">Login</a>
+    </form>
+</div>

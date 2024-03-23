@@ -41,6 +41,11 @@ namespace Project_WebDev.Controllers
             return View();
         }
 
+        public IActionResult Register()
+        {
+            return View();
+        }
+
         public IActionResult Shop(string order)
         {
             // Sort items based on the 'order' query parameter
