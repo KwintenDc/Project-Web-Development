@@ -57,4 +57,28 @@
         // Refresh the page
         window.location.reload();
     });
+
+    var addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+    addToCartButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            var itemId = button.getAttribute('data-item-id');
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/Home/AddToCart');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // Handle success response if needed
+                        alert('Item added to cart successfully!');
+                    } else {
+                        // Handle error response if needed
+                        console.error('Error:', xhr.responseText);
+                    }
+                }
+            };
+            xhr.send('itemId=' + encodeURIComponent(itemId));
+        });
+    });
 });

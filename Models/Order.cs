@@ -6,7 +6,7 @@
         public DateTime OrderPlaced { get; set; }
         public DateTime? OrderFullFilled { get; set; }
         public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
-        public ICollection<OrderDetails> OrderDetails { get; set; }
+        public Customer Customer { get; set; } = null!;
+        public ICollection<OrderDetails> OrderDetails { get; set; } = new List<OrderDetails>();
     }
 }

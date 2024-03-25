@@ -51,7 +51,7 @@ namespace Project_WebDev.Controllers
             {
                 HttpContext.Session.SetString("CurrentCustomer", JsonSerializer.Serialize(customer));
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Shop", "Home");
             }
             else
             {
@@ -76,7 +76,7 @@ namespace Project_WebDev.Controllers
             }
 
             // Create the customer object
-            Customer customer = new Customer()
+            Customer customer = new ()
             {
                 FirstName = firstname,
                 LastName = lastname,
@@ -121,7 +121,90 @@ namespace Project_WebDev.Controllers
 
         public IActionResult ShoppingCart()
         {
-            return View();
+            var currentCustomerJson = HttpContext.Session.GetString("CurrentCustomer");
+            if (!string.IsNullOrEmpty(currentCustomerJson))
+            {
+                currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
+            }
+
+            if (currentCustomer != null)
+            {
+                var activeOrder = _context.Orders
+                    .Include(o => o.OrderDetails) // Ensure OrderDetails are included
+                    .FirstOrDefault(o => o.CustomerId == currentCustomer.Id && o.OrderFullFilled == null);
+
+                if (activeOrder != null)
+                {
+                    // Return the order details associated with the active order
+                    return View(activeOrder.OrderDetails);
+                }
+                else
+                {
+                    // If no active order is found, return an empty list of order details
+                    return View(null);
+                }
+            }
+            else
+            {
+                // If no current customer is found, redirect to the login page
+                return RedirectToAction("Login");
+            }
+        }
+
+
+        [HttpPost]
+        public IActionResult AddToCart(int itemId)
+        {
+            var currentCustomerJson = HttpContext.Session.GetString("CurrentCustomer");
+            if (!string.IsNullOrEmpty(currentCustomerJson))
+            {
+                currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
+            }
+            if (currentCustomer != null)
+            {
+                var item = _context.Items.FirstOrDefault(i => i.Id == itemId);
+
+                if (item != null)
+                {
+                    // Check if the current customer has an active order
+                    var activeOrder = _context.Orders.FirstOrDefault(o => o.CustomerId == currentCustomer.Id && o.OrderFullFilled == null);
+
+                    if (activeOrder == null)
+                    {
+                        activeOrder = new Order
+                        {
+                            OrderPlaced = DateTime.Now,
+                            CustomerId = currentCustomer.Id,
+                            //Customer = currentCustomer,
+                            OrderDetails = new List<OrderDetails>()
+                        };
+
+                        _context.Orders.Add(activeOrder);
+                        currentCustomer.Orders.Add(activeOrder);
+                        _context.SaveChanges();
+                    }
+
+                    var orderDetails = new OrderDetails
+                    {
+                        Quantity = 1,
+                        ProductId = itemId,
+                        OrderId = activeOrder.Id,
+                        Order = activeOrder,
+                        Item = item
+                    };
+
+                    activeOrder.OrderDetails.Add(orderDetails);
+                    _context.SaveChanges();
+
+                    return Ok(); 
+                }
+
+                return NotFound(); 
+            }
+            else
+            {
+                return View("Login");
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

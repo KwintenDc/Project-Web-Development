@@ -285,6 +285,14 @@
       "PackagePath": "staticwebassets\\images\\warrior-medium-utility-pouch-multicam.jpg"
     },
     {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\js\\cart.js",
+      "PackagePath": "staticwebassets\\js\\cart.js"
+    },
+    {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\js\\shop.js",
+      "PackagePath": "staticwebassets\\js\\shop.js"
+    },
+    {
       "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

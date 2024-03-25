@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WmSnXNIpqrr1OeBUjRKQwAw2ZbScTic2AEetaMzUbGk=",
+  "Hash": "ElbBoTc+ztX9nHwaKdof4EAVeqH0TkuYFo7xC6UrLq8=",
   "Source": "Project WebDev",
   "BasePath": "_content/Project WebDev",
   "Mode": "Default",
@@ -1239,6 +1239,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\warrior-medium-utility-pouch-multicam.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\js\\cart.js",
+      "SourceId": "Project WebDev",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\",
+      "BasePath": "_content/Project WebDev",
+      "RelativePath": "js/cart.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\cart.js"
+    },
+    {
+      "Identity": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\js\\shop.js",
+      "SourceId": "Project WebDev",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\",
+      "BasePath": "_content/Project WebDev",
+      "RelativePath": "js/shop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\shop.js"
     },
     {
       "Identity": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\js\\site.js",
