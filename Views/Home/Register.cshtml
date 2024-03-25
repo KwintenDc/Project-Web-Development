@@ -1,17 +1,18 @@
-﻿<div class="container mt-5">
+﻿
+<div class="container mt-5">
     <h2>Register</h2>
-    <form action="/register" method="post">
+    <form asp-action="Register" method="post">
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="firstname">First Name:</label>
-                    <input type="text" class="form-control py-1 my-2" id="firstname" name="firstname" placeholder="Enter First Name">
+                    <input type="text" class="form-control py-1 my-2" id="firstname" name="firstname" placeholder="Enter First Name" required>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="lastname">Last Name:</label>
-                    <input type="text" class="form-control py-1 my-2" id="lastname" name="lastname" placeholder="Enter Last Name">
+                    <input type="text" class="form-control py-1 my-2" id="lastname" name="lastname" placeholder="Enter Last Name" required>
                 </div>
             </div>
         </div>
@@ -19,13 +20,13 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="text" class="form-control py-1 my-2" id="email" name="email" placeholder="Enter Email">
+                    <input type="text" class="form-control py-1 my-2" id="email" name="email" placeholder="Enter Email" required>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="number">Enter Phone Number:</label>
-                    <input type="text" class="form-control py-1 my-2" id="number" name="number" placeholder="Enter Phone Number">
+                    <input type="text" class="form-control py-1 my-2" id="number" name="number" placeholder="Enter Phone Number" required>
                 </div>
             </div>
         </div>
@@ -33,7 +34,11 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" class="form-control py-1 my-2" id="password" name="password" placeholder="Enter Password">
+                    <input type="password" class="form-control py-1 my-2" id="password" name="password" placeholder="Enter Password" required>
+                    @if(Model != null)
+                    {
+                        <p class="alert alert-danger">@Model</p>
+                    }
                 </div>
             </div>
             <div class="col-md-6">

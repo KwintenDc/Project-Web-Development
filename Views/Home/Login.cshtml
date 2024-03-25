@@ -1,7 +1,7 @@
 ﻿<div class="container mt-5">
     <h2>Login</h2>
     <p>Please login to use our shop.</p>
-    <form action="/login" method="post">
+    <form asp-action="Login" method="post">
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="text" class="form-control py-1 my-2" id="email" name="email" placeholder="Enter email">
@@ -9,6 +9,10 @@
         <div class="form-group">
             <label for="password">Password:</label>
             <input type="password" class="form-control py-1 my-2" id="password" name="password" placeholder="Enter password">
+            @if (Model != null)
+            {
+                <p class="alert alert-danger">@Model</p>
+            }
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
         <a asp-action="Register" class="forgot-password">Haven't got an account yet?</a>
