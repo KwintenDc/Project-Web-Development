@@ -4,32 +4,34 @@
 
     shopSelector.querySelectorAll(".nav-link").forEach(function (navItem) {
         navItem.addEventListener("click", function (event) {
-            event.preventDefault();
+            if (event.target.classList != "material-symbols-outlined") {
+                event.preventDefault();
 
-            document.querySelectorAll(".nav-link").forEach(function (item) {
-                item.classList.remove("active");
-            });
+                document.querySelectorAll(".nav-link").forEach(function (item) {
+                    item.classList.remove("active");
+                });
 
-            this.classList.add("active");
+                this.classList.add("active");
 
-            const itemType = this.getAttribute("data-type");
+                const itemType = this.getAttribute("data-type");
 
-            if (itemType != null) {
-                if (itemType != "All") {
-                    container.querySelectorAll(".itemDiv").forEach(function (row) {
-                        if (row.id === itemType) {
+                if (itemType != null) {
+                    if (itemType != "All") {
+                        container.querySelectorAll(".itemDiv").forEach(function (row) {
+                            if (row.id === itemType) {
+                                row.style.display = "block";
+                            } else {
+                                row.style.display = "none";
+                            }
+                        });
+                    }
+                    else {
+                        container.querySelectorAll(".itemDiv").forEach(function (row) {
                             row.style.display = "block";
-                        } else {
-                            row.style.display = "none";
-                        }
-                    });
+                        });
+                    }
                 }
-                else {
-                    container.querySelectorAll(".itemDiv").forEach(function (row) {
-                        row.style.display = "block";
-                    });
-                }
-            }
+            }     
         });
     });
 
@@ -70,10 +72,9 @@
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                        // Handle success response if needed
-                        alert('Item added to cart successfully!');
+                        //...
                     } else {
-                        // Handle error response if needed
+                        
                         console.error('Error:', xhr.responseText);
                     }
                 }

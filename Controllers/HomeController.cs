@@ -68,14 +68,12 @@ namespace Project_WebDev.Controllers
         [HttpPost]
         public IActionResult Register(string firstname, string lastname, string email, string number, string password, string confirmPassword)
         {
-            // Check if passwords match
             if (password != confirmPassword)
             {
                 string err = "The password and confirm password do not match.";
                 return View("Register", err);
             }
 
-            // Create the customer object
             Customer customer = new ()
             {
                 FirstName = firstname,
@@ -104,7 +102,6 @@ namespace Project_WebDev.Controllers
             }
             if (currentCustomer != null) 
             {
-                // Sort items based on the 'order' query parameter
                 if (order == "asc")
                 {
                     _items = _items.OrderBy(item => item.Price).ToList();
@@ -130,23 +127,20 @@ namespace Project_WebDev.Controllers
             if (currentCustomer != null)
             {
                 var activeOrder = _context.Orders
-                    .Include(o => o.OrderDetails) // Ensure OrderDetails are included
+                    .Include(o => o.OrderDetails) 
                     .FirstOrDefault(o => o.CustomerId == currentCustomer.Id && o.OrderFullFilled == null);
 
                 if (activeOrder != null)
                 {
-                    // Return the order details associated with the active order
                     return View(activeOrder.OrderDetails);
                 }
                 else
                 {
-                    // If no active order is found, return an empty list of order details
                     return View(null);
                 }
             }
             else
             {
-                // If no current customer is found, redirect to the login page
                 return RedirectToAction("Login");
             }
         }
@@ -166,7 +160,6 @@ namespace Project_WebDev.Controllers
 
                 if (item != null)
                 {
-                    // Check if the current customer has an active order
                     var activeOrder = _context.Orders.FirstOrDefault(o => o.CustomerId == currentCustomer.Id && o.OrderFullFilled == null);
 
                     if (activeOrder == null)
@@ -175,7 +168,6 @@ namespace Project_WebDev.Controllers
                         {
                             OrderPlaced = DateTime.Now,
                             CustomerId = currentCustomer.Id,
-                            //Customer = currentCustomer,
                             OrderDetails = new List<OrderDetails>()
                         };
 
@@ -205,6 +197,37 @@ namespace Project_WebDev.Controllers
             {
                 return View("Login");
             }
+        }
+        
+        [HttpPost]
+        public IActionResult UpdateQuantity(int orderDetailId, int quantity)
+        {
+            var orderDetail = _context.OrderDetails.FirstOrDefault(od => od.Id == orderDetailId);
+
+            if (orderDetail != null)
+            {
+                orderDetail.Quantity = quantity;
+                _context.SaveChanges();
+
+                return Ok();
+            }
+
+            return NotFound();
+        }
+        [HttpPost]
+        public IActionResult RemoveFromCart(int orderDetailId)
+        {
+            var orderDetail = _context.OrderDetails.FirstOrDefault(od => od.Id == orderDetailId);
+
+            if (orderDetail != null)
+            {
+                _context.OrderDetails.Remove(orderDetail);
+                _context.SaveChanges();
+
+                return Ok();
+            }
+            return NotFound();
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

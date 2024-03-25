@@ -6,6 +6,23 @@
             updateTotal(input);
             updateSubtotal();
             updateTotalPrice();
+
+            var orderId = input.id.replace('quantity ', '');
+            console.log(orderId);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/Home/UpdateQuantity');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        //...
+                    } else {
+                        console.error('Error:', xhr.responseText);
+                    }
+                }
+            };
+            xhr.send('orderDetailId=' + encodeURIComponent(orderId) + '&quantity=' + encodeURIComponent(input.value));
         });
     });
 
@@ -25,9 +42,10 @@
         var price = parseFloat(priceString.replace(',', '.')); // Replace comma with dot
         var totalPriceElement = input.parentElement.nextElementSibling;
         var totalPrice = quantity * price;
-        totalPriceElement.textContent = '€' + totalPrice.toFixed(2).replace('.', ','); 
+        totalPriceElement.textContent = '€' + totalPrice.toFixed(2).replace('.', ',');
     }
 
+    // Function to update subtotal
     function updateSubtotal() {
         var totalPrices = document.querySelectorAll('td:nth-child(4)');
         var subtotal = 0;
@@ -43,18 +61,31 @@
     // Function to update total price (subtotal + shipping)
     function updateTotalPrice() {
         var subtotalElement = document.getElementById('subtotal');
-        var shippingCostsString = document.getElementById('shipping').textContent.replace(/[^\d,.]/g, ''); 
-        console.log(shippingCostsString);
+        var shippingCostsString = document.getElementById('shipping').textContent.replace(/[^\d,.]/g, '');
         var shippingCosts = parseFloat(shippingCostsString.replace(',', '.'));
-        console.log(shippingCosts);
         var total = parseFloat(subtotalElement.textContent.replace(/[^\d,.]/g, '').replace(',', '.')) + shippingCosts;
         var totalElement = document.getElementById('total');
-        totalElement.textContent = '€' + total.toFixed(2).replace('.', ','); 
+        totalElement.textContent = '€' + total.toFixed(2).replace('.', ',');
     }
 
-
+    // Function to remove item from cart
     function removeItem(button) {
         var row = button.closest('tr');
+        var itemId = button.dataset.id; 
         row.remove();
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/Home/RemoveFromCart');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    //...
+                } else {
+                    console.error('Error:', xhr.responseText);
+                }
+            }
+        };
+        xhr.send('orderDetailId=' + encodeURIComponent(itemId));
     }
 });
