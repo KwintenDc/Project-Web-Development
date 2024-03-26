@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Project_WebDev.Models.Order>
+@using Project_WebDev.Models
+
+<h2 class="mt-4">All Orders</h2>
+
+@if (Model != null && Model.Any())
+{
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer Email</th>
+                    <th>Order Date</th>
+                    <th>Total Items</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var order in Model)
+            {
+                    <tr>
+                        <td>@order.Id</td>
+                        <td>@order.Customer.Email</td>
+                        <td>@order.OrderPlaced.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                        <td>@order.OrderDetails.Sum(od => od.Quantity)</td>
+                        <td>€@order.OrderDetails.Sum(od => od.Quantity * od.Item.Price).ToString("0.00")</td>
+                    </tr>
+            }
+            </tbody>
+        </table>
+}
+else
+{
+        <p>No orders found.</p>
+}
+
+@{
+    var aggregatedOrderDetails = ViewData["AggregatedOrderDetails"] as IEnumerable<AggregatedOrderDetail>;
+}
+
+<h2>All Ordered Products</h2>
+@if (aggregatedOrderDetails != null && aggregatedOrderDetails.Any())
+{
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Total Quantity</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in aggregatedOrderDetails)
+            {
+                    <tr>
+                        <td>@item.ItemName</td>
+                        <td>@item.TotalQuantity</td>
+                        <td>€@(item.TotalPrice.ToString("0.00"))</td>
+                    </tr>
+            }
+            </tbody>
+        </table>
+}
+else
+{
+        <p>No orders found.</p>
+}

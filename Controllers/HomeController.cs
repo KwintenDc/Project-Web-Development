@@ -261,6 +261,31 @@ namespace Project_WebDev.Controllers
             return BadRequest();
         }
 
+        public IActionResult Summary()
+        {
+            var orders = _context.Orders
+                .Include(o => o.Customer)
+                .Include(o => o.OrderDetails)
+                .ThenInclude(od => od.Item)
+                //.Where(o => o.OrderFullFilled != null)
+                .ToList();
+
+            var aggregatedOrderDetails = orders
+                .SelectMany(o => o.OrderDetails)
+                .GroupBy(od => od.Item.Name)
+                .Select(g => new AggregatedOrderDetail
+                {
+                    ItemName = g.Key,
+                    TotalQuantity = g.Sum(od => od.Quantity),
+                    TotalPrice = g.Sum(od => od.Quantity * od.Item.Price)
+                })
+                .ToList();
+
+            ViewData["AggregatedOrderDetails"] = aggregatedOrderDetails;
+
+            return View(orders);
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
