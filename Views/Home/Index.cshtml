@@ -8,7 +8,7 @@
       <div class="col-12">
         <h1>Welcome to the Airsoft Webshop!</h1>
         <p>Your one-stop shop for all your airsoft gear and needs.</p>
-        <a href="#" class="btn btn-primary mt-3">Shop Now!</a>
+        <a asp-action="Shop" class="btn btn-primary mt-3">Shop Now!</a>
       </div>
     </div>
   </div>
@@ -23,7 +23,7 @@
               <img src=@item.Image class="card-img-top" alt="Product 1">
               <div class="card-body">
                 <h5 class="card-title">@item.Name</h5>
-                <a href="#" class="btn btn-primary">Go to shop</a>
+                <a asp-action="Shop" class="btn btn-primary">Go to shop</a>
               </div>
             </div>
           </div>
