@@ -15,20 +15,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var orderDetails in Model)
+                    @if (Model != null && Model.Any())
                     {
-                    <tr>
-                        <td>@orderDetails.Item.Name</td>
-                        <td>€@orderDetails.Item.Price.ToString("0.00")</td>
-                        <td>
-                            <input type="number" value="@orderDetails.Quantity" min="1" id="quantity @orderDetails.Id">
-                        </td>
-                        <td class="totalPrice">€@((orderDetails.Quantity * orderDetails.Item.Price).ToString("0.00"))</td>
-                        <td>
-                            <button class="btn btn-sm btn-danger removeBtn" data-id="@orderDetails.Id">Remove</button>
-                        </td>
-                    </tr>
+                        @foreach (var orderDetails in Model)
+                        {
+                            <tr>
+                                <td>@orderDetails.Item.Name</td>
+                                <td>€@orderDetails.Item.Price.ToString("0.00")</td>
+                                <td>
+                                    <input type="number" value="@orderDetails.Quantity" min="1" id="quantity @orderDetails.Id">
+                                </td>
+                                <td class="totalPrice">€@((orderDetails.Quantity * orderDetails.Item.Price).ToString("0.00"))</td>
+                                <td>
+                                    <button class="btn btn-sm btn-danger removeBtn" data-id="@orderDetails.Id">Remove</button>
+                                </td>
+                            </tr>
+                        } 
                     }
+                    else
+                    {
+                        <tr>
+                            <td>
+                                <p>No items in your cart.</p>
+                            </td>
+                        </tr>
+                    }
+                    
                 </tbody>
             </table>
         </div>
@@ -46,19 +58,19 @@
                     <span>€0.00</span>
                     }
                     </p>
-                    <p class="card-text" id="shipping">Shipping: €5.00</p> <!-- TODOKWINTEN : Replace with realistic shipping cost (always hardcoded) -->
+                    <p class="card-text" id="shipping">Shipping: €15.00</p> <!-- TODOKWINTEN : Replace with realistic shipping cost (always hardcoded) -->
                     <hr>
                     <h4 class="card-text">Total: 
                     @if (Model != null && Model.Any())
                     {
-                        <span id="total">€@((Model.Sum(od => od.Quantity * od.Item.Price) + 5.00).ToString("0.00"))</span>
+                        <span id="total">€@((Model.Sum(od => od.Quantity * od.Item.Price) + 15.00).ToString("0.00"))</span>
                     }
                     else
                     {
                     <span>€5.00</span>
                     }
                     </h4>
-                    <a href="#" class="btn btn-success btn-block">Checkout</a>
+                    <button type="button" class="btn btn-success btn-block" id="checkoutBtn">Checkout</button>
                 </div>
             </div>  
         </div>

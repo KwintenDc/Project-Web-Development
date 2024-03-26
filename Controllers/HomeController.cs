@@ -46,8 +46,9 @@ namespace Project_WebDev.Controllers
         public IActionResult Login(string email, string password)
         {
             var customer = _context.Customers.FirstOrDefault(c => c.Email == email);
+            var passwordDb = _context.Customers.FirstOrDefault(c => c.Password == password);
 
-            if (customer != null)
+            if ((customer != null) && (passwordDb != null))
             {
                 HttpContext.Session.SetString("CurrentCustomer", JsonSerializer.Serialize(customer));
 
@@ -68,6 +69,7 @@ namespace Project_WebDev.Controllers
         [HttpPost]
         public IActionResult Register(string firstname, string lastname, string email, string number, string password, string confirmPassword)
         {
+            // TODOKWINTEN : Passwords hashen! 
             if (password != confirmPassword)
             {
                 string err = "The password and confirm password do not match.";
@@ -145,7 +147,6 @@ namespace Project_WebDev.Controllers
             }
         }
 
-
         [HttpPost]
         public IActionResult AddToCart(int itemId)
         {
@@ -160,7 +161,8 @@ namespace Project_WebDev.Controllers
 
                 if (item != null)
                 {
-                    var activeOrder = _context.Orders.FirstOrDefault(o => o.CustomerId == currentCustomer.Id && o.OrderFullFilled == null);
+                    var activeOrder = _context.Orders.Include(o => o.OrderDetails)
+                                        .FirstOrDefault(o => o.CustomerId == currentCustomer.Id && o.OrderFullFilled == null);
 
                     if (activeOrder == null)
                     {
@@ -176,29 +178,37 @@ namespace Project_WebDev.Controllers
                         _context.SaveChanges();
                     }
 
-                    var orderDetails = new OrderDetails
+                    var existingOrderDetail = activeOrder.OrderDetails.FirstOrDefault(od => od.ProductId == itemId);
+                    if (existingOrderDetail != null)
                     {
-                        Quantity = 1,
-                        ProductId = itemId,
-                        OrderId = activeOrder.Id,
-                        Order = activeOrder,
-                        Item = item
-                    };
+                        existingOrderDetail.Quantity += 1;
+                    }
+                    else
+                    {
+                        var orderDetails = new OrderDetails
+                        {
+                            Quantity = 1,
+                            ProductId = itemId,
+                            OrderId = activeOrder.Id,
+                            Order = activeOrder,
+                            Item = item
+                        };
 
-                    activeOrder.OrderDetails.Add(orderDetails);
+                        activeOrder.OrderDetails.Add(orderDetails);
+                    }
                     _context.SaveChanges();
 
-                    return Ok(); 
+                    return Ok();
                 }
 
-                return NotFound(); 
+                return NotFound();
             }
             else
             {
                 return View("Login");
             }
         }
-        
+
         [HttpPost]
         public IActionResult UpdateQuantity(int orderDetailId, int quantity)
         {
@@ -229,6 +239,28 @@ namespace Project_WebDev.Controllers
             return NotFound();
 
         }
+        [HttpPost]
+        public IActionResult Checkout()
+        {
+            var currentCustomerJson = HttpContext.Session.GetString("CurrentCustomer");
+            if (!string.IsNullOrEmpty(currentCustomerJson))
+            {
+                currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
+            }
+            if (currentCustomer != null)
+            {
+                var activeOrder = _context.Orders.Include(o => o.OrderDetails)
+                                       .FirstOrDefault(o => o.CustomerId == currentCustomer.Id && o.OrderFullFilled == null);
+                if (activeOrder != null)
+                {
+                    activeOrder.OrderFullFilled = DateTime.Now;
+                    _context.SaveChanges();
+                    return Ok();
+                }
+            }
+            return BadRequest();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

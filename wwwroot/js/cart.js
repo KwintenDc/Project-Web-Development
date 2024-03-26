@@ -39,7 +39,7 @@
     function updateTotal(input) {
         var quantity = parseInt(input.value);
         var priceString = input.parentElement.previousElementSibling.textContent.replace(/[^\d,.]/g, '');
-        var price = parseFloat(priceString.replace(',', '.')); // Replace comma with dot
+        var price = parseFloat(priceString.replace(',', '.')); 
         var totalPriceElement = input.parentElement.nextElementSibling;
         var totalPrice = quantity * price;
         totalPriceElement.textContent = '€' + totalPrice.toFixed(2).replace('.', ',');
@@ -88,4 +88,22 @@
         };
         xhr.send('orderDetailId=' + encodeURIComponent(itemId));
     }
+
+    var chkBtn = document.getElementById("checkoutBtn");
+    chkBtn.addEventListener('click', function () {
+        console.log("click")
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/Home/Checkout');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    window.location.reload();
+                } else {
+                    console.error('Error:', xhr.responseText);
+                }
+            }
+        };
+        xhr.send();
+    });
 });
