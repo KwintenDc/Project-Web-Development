@@ -30,21 +30,51 @@ namespace Project_WebDev.Controllers
 
         public IActionResult Index()
         {
+            var currentCustomerJson = HttpContext.Session.GetString("CurrentCustomer");
+            if (!string.IsNullOrEmpty(currentCustomerJson))
+            {
+                currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
+            }
+            if(currentCustomer != null)
+                ViewBag.Role = currentCustomer.Role;
+            // ViewBag.Role = "Admin";
             return View(_items);
         }
 
         public IActionResult About()
         {
+            var currentCustomerJson = HttpContext.Session.GetString("CurrentCustomer");
+            if (!string.IsNullOrEmpty(currentCustomerJson))
+            {
+                currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
+            }
+            if (currentCustomer != null)
+                ViewBag.Role = currentCustomer.Role;
             return View();
         }
 
         public IActionResult Contact()
         {
+            var currentCustomerJson = HttpContext.Session.GetString("CurrentCustomer");
+            if (!string.IsNullOrEmpty(currentCustomerJson))
+            {
+                currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
+            }
+            if (currentCustomer != null)
+                ViewBag.Role = currentCustomer.Role;
             return View();
         }
         [HttpPost]
         public IActionResult Login(string email, string password)
         {
+            var currentCustomerJson = HttpContext.Session.GetString("CurrentCustomer");
+            if (!string.IsNullOrEmpty(currentCustomerJson))
+            {
+                currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
+            }
+            if (currentCustomer != null)
+                ViewBag.Role = currentCustomer.Role;
+
             var customer = _context.Customers.FirstOrDefault(c => c.Email == email);
             var passwordDb = _context.Customers.FirstOrDefault(c => c.Password == password);
 
@@ -63,12 +93,28 @@ namespace Project_WebDev.Controllers
 
         public IActionResult Login()
         {
+            var currentCustomerJson = HttpContext.Session.GetString("CurrentCustomer");
+            if (!string.IsNullOrEmpty(currentCustomerJson))
+            {
+                currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
+            }
+            if (currentCustomer != null)
+                ViewBag.Role = currentCustomer.Role;
+
             return View();
         }
 
         [HttpPost]
         public IActionResult Register(string firstname, string lastname, string email, string number, string password, string confirmPassword)
         {
+            var currentCustomerJson = HttpContext.Session.GetString("CurrentCustomer");
+            if (!string.IsNullOrEmpty(currentCustomerJson))
+            {
+                currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
+            }
+            if (currentCustomer != null)
+                ViewBag.Role = currentCustomer.Role;
+
             // TODOKWINTEN : Passwords hashen! 
             if (password != confirmPassword)
             {
@@ -91,7 +137,15 @@ namespace Project_WebDev.Controllers
         }
 
         public IActionResult Register() 
-        { 
+        {
+            var currentCustomerJson = HttpContext.Session.GetString("CurrentCustomer");
+            if (!string.IsNullOrEmpty(currentCustomerJson))
+            {
+                currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
+            }
+            if (currentCustomer != null)
+                ViewBag.Role = currentCustomer.Role;
+
             return View();
         }
 
@@ -101,9 +155,10 @@ namespace Project_WebDev.Controllers
             if (!string.IsNullOrEmpty(currentCustomerJson))
             {
                 currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
-            }
+            }   
             if (currentCustomer != null) 
             {
+                ViewBag.Role = currentCustomer.Role;
                 if (order == "asc")
                 {
                     _items = _items.OrderBy(item => item.Price).ToList();
@@ -125,8 +180,10 @@ namespace Project_WebDev.Controllers
             {
                 currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
             }
-
             if (currentCustomer != null)
+                ViewBag.Role = currentCustomer.Role;
+
+            if (currentCustomer != null && currentCustomer.Role != "Pending")
             {
                 var activeOrder = _context.Orders
                     .Include(o => o.OrderDetails) 
@@ -154,9 +211,11 @@ namespace Project_WebDev.Controllers
             if (!string.IsNullOrEmpty(currentCustomerJson))
             {
                 currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
-            }
+            }  
+
             if (currentCustomer != null)
             {
+                ViewBag.Role = currentCustomer.Role;
                 var item = _context.Items.FirstOrDefault(i => i.Id == itemId);
 
                 if (item != null)
@@ -263,29 +322,108 @@ namespace Project_WebDev.Controllers
 
         public IActionResult Summary()
         {
-            var orders = _context.Orders
-                .Include(o => o.Customer)
-                .Include(o => o.OrderDetails)
-                .ThenInclude(od => od.Item)
-                //.Where(o => o.OrderFullFilled != null)
-                .ToList();
+            var currentCustomerJson = HttpContext.Session.GetString("CurrentCustomer");
+            if (!string.IsNullOrEmpty(currentCustomerJson))
+            {
+                currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
+            }
+            if (currentCustomer != null)
+                ViewBag.Role = currentCustomer.Role;
+            if (currentCustomer != null && currentCustomer.Role == "Admin")
+            {
+                var orders = _context.Orders
+                    .Include(o => o.Customer)
+                    .Include(o => o.OrderDetails)
+                    .ThenInclude(od => od.Item)
+                    //.Where(o => o.OrderFullFilled != null)
+                    .ToList();
 
-            var aggregatedOrderDetails = orders
-                .SelectMany(o => o.OrderDetails)
-                .GroupBy(od => od.Item.Name)
-                .Select(g => new AggregatedOrderDetail
-                {
-                    ItemName = g.Key,
-                    TotalQuantity = g.Sum(od => od.Quantity),
-                    TotalPrice = g.Sum(od => od.Quantity * od.Item.Price)
-                })
-                .ToList();
+                var aggregatedOrderDetails = orders
+                    .SelectMany(o => o.OrderDetails)
+                    .GroupBy(od => od.Item.Name)
+                    .Select(g => new AggregatedOrderDetail
+                    {
+                        ItemName = g.Key,
+                        TotalQuantity = g.Sum(od => od.Quantity),
+                        TotalPrice = g.Sum(od => od.Quantity * od.Item.Price)
+                    })
+                    .ToList();
 
-            ViewData["AggregatedOrderDetails"] = aggregatedOrderDetails;
+                ViewData["AggregatedOrderDetails"] = aggregatedOrderDetails;
 
-            return View(orders);
+                return View(orders);
+            }
+            else
+                return View("Login");
+        }
+        
+        public IActionResult Verify()
+        {
+            var currentCustomerJson = HttpContext.Session.GetString("CurrentCustomer");
+            if (!string.IsNullOrEmpty(currentCustomerJson))
+            {
+                currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
+            }
+            if (currentCustomer != null)
+                ViewBag.Role = currentCustomer.Role;
+
+            if (currentCustomer != null && currentCustomer.Role == "Admin")
+            {
+                var customers = _context.Customers.ToList();
+                return View(customers);
+            }
+            else
+                return RedirectToAction("Login");
         }
 
+        [HttpPost]
+        public IActionResult ChangeRole(int userId, string action)
+        {
+            var currentCustomerJson = HttpContext.Session.GetString("CurrentCustomer");
+            if (!string.IsNullOrEmpty(currentCustomerJson))
+            {
+                currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
+            }
+            if (currentCustomer != null)
+            {
+                
+                var user = _context.Customers.FirstOrDefault(u => u.Id == userId);
+
+                if (user == null)
+                {
+                    return NotFound();
+                }
+
+                if (action == "promote")
+                {
+                    if (user.Role == "Pending")
+                        user.Role = "User";
+                    else if (user.Role == "User")
+                        user.Role = "Employee";
+                    else if (user.Role == "Employee")
+                        user.Role = "Admin";
+                }
+                else if (action == "demote")
+                {
+                    if (user.Role == "User")
+                        _context.Customers.Remove(user);
+                    else if (user.Role == "Employee")
+                        user.Role = "User";
+                    else if (user.Role == "Admin")
+                        if (currentCustomer.Id != user.Id)
+                            user.Role = "Employee";
+                        else
+                            return RedirectToAction("Verify");
+                }
+
+                _context.SaveChanges();
+                return RedirectToAction("Verify");
+            }
+            else
+                return RedirectToAction("Index");
+            
+        }
+    
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

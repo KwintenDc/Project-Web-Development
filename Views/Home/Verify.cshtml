@@ -1,5 +1,55 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<Project_WebDev.Models.Customer>
+@using Project_WebDev.Models
+<h1>Users Management</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model != null && Model.Any())
+        {
+            @foreach (var user in Model)
+            {
+                        <tr>
+                            <td>@user.Email</td>
+                            <td>@user.Role</td>
+                            <td>
+                                <form asp-action="ChangeRole" method="post">
+                                <input type="hidden" name="userId" value="@user.Id" />
+                                @if (user.Role == "Admin")
+                                {
+                                    <button type="submit" class="btn btn-danger" name="action" value="demote">Demote</button>
+                                }
+                                else if (user.Role == "Employee")
+                                {
+                                    <button type="submit" class="btn btn-success" name="action" value="promote">Promote</button>
+                                    <button type="submit" class="btn btn-danger" name="action" value="demote">Demote</button>
+                                }
+                                else if (user.Role == "User")
+                                {
+                                    <button type="submit" class="btn btn-success" name="action" value="promote">Promote</button>
+                                    <button type="submit" class="btn btn-danger" name="action" value="demote">Remove</button>
+                                }
+                                else if (user.Role == "Pending")
+                                {
+                                    <button type="submit" class="btn btn btn-outline-success" name="action" value="promote">Accept</button>
+                                }
+                                </form>
+                            </td>
+                        </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td>No Users found ...</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
