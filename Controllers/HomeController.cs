@@ -423,7 +423,10 @@ namespace Project_WebDev.Controllers
                 return RedirectToAction("Index");
             
         }
-    
+        public IActionResult ProductsAdmin()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
