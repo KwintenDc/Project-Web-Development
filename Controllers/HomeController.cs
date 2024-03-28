@@ -36,8 +36,7 @@ namespace Project_WebDev.Controllers
                 currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
             }
             if(currentCustomer != null)
-                ViewBag.Role = currentCustomer.Role;
-            // ViewBag.Role = "Admin";
+                ViewBag.Customer = currentCustomer;
             return View(_items);
         }
 
@@ -49,7 +48,7 @@ namespace Project_WebDev.Controllers
                 currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
             }
             if (currentCustomer != null)
-                ViewBag.Role = currentCustomer.Role;
+                ViewBag.Customer = currentCustomer;
             return View();
         }
 
@@ -61,7 +60,7 @@ namespace Project_WebDev.Controllers
                 currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
             }
             if (currentCustomer != null)
-                ViewBag.Role = currentCustomer.Role;
+                ViewBag.Customer = currentCustomer;
             return View();
         }
         [HttpPost]
@@ -73,7 +72,7 @@ namespace Project_WebDev.Controllers
                 currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
             }
             if (currentCustomer != null)
-                ViewBag.Role = currentCustomer.Role;
+                ViewBag.Customer = currentCustomer;
 
             var customer = _context.Customers.FirstOrDefault(c => c.Email == email);
             var passwordDb = _context.Customers.FirstOrDefault(c => c.Password == password);
@@ -99,7 +98,7 @@ namespace Project_WebDev.Controllers
                 currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
             }
             if (currentCustomer != null)
-                ViewBag.Role = currentCustomer.Role;
+                ViewBag.Customer = currentCustomer;
 
             return View();
         }
@@ -113,7 +112,7 @@ namespace Project_WebDev.Controllers
                 currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
             }
             if (currentCustomer != null)
-                ViewBag.Role = currentCustomer.Role;
+                ViewBag.Customer = currentCustomer;
 
             // TODOKWINTEN : Passwords hashen! 
             if (password != confirmPassword)
@@ -144,9 +143,16 @@ namespace Project_WebDev.Controllers
                 currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
             }
             if (currentCustomer != null)
-                ViewBag.Role = currentCustomer.Role;
+                ViewBag.Customer = currentCustomer;
 
             return View();
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Shop(string order)
@@ -158,7 +164,7 @@ namespace Project_WebDev.Controllers
             }   
             if (currentCustomer != null) 
             {
-                ViewBag.Role = currentCustomer.Role;
+                ViewBag.Customer = currentCustomer;
                 if (order == "asc")
                 {
                     _items = _items.OrderBy(item => item.Price).ToList();
@@ -181,7 +187,7 @@ namespace Project_WebDev.Controllers
                 currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
             }
             if (currentCustomer != null)
-                ViewBag.Role = currentCustomer.Role;
+                ViewBag.Customer = currentCustomer;
 
             if (currentCustomer != null && currentCustomer.Role != "Pending")
             {
@@ -215,7 +221,7 @@ namespace Project_WebDev.Controllers
 
             if (currentCustomer != null)
             {
-                ViewBag.Role = currentCustomer.Role;
+                ViewBag.Customer = currentCustomer;
                 var item = _context.Items.FirstOrDefault(i => i.Id == itemId);
 
                 if (item != null)
@@ -328,7 +334,7 @@ namespace Project_WebDev.Controllers
                 currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
             }
             if (currentCustomer != null)
-                ViewBag.Role = currentCustomer.Role;
+                ViewBag.Customer = currentCustomer;
             if (currentCustomer != null && currentCustomer.Role == "Admin")
             {
                 var orders = _context.Orders
@@ -365,7 +371,7 @@ namespace Project_WebDev.Controllers
                 currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
             }
             if (currentCustomer != null)
-                ViewBag.Role = currentCustomer.Role;
+                ViewBag.Customer = currentCustomer;
 
             if (currentCustomer != null && currentCustomer.Role == "Admin")
             {

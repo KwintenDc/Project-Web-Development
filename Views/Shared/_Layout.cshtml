@@ -1,4 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Customer customer;
+    if (ViewData["Customer"] != null)
+        customer = (Customer)ViewData["Customer"];
+    else
+    {
+        customer = new();
+        customer.Email = "Guest";
+    }
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -17,19 +28,27 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
+                <a class="nav-item nav-link" asp-action="Logout" data-toggle="tooltip" title="Log out">Welcome @customer.Email!</a>
                 <a class="nav-item nav-link" asp-action="Index">Home</a>
                 <a class="nav-item nav-link" asp-action="Shop">Shop</a>
                 <a class="nav-item nav-link" asp-action="About">About Us</a>
                 <a class="nav-item nav-link" asp-action="Contact">Contact</a>
                 <a class="nav-item nav-link" asp-action="Login">Login</a>
-                @if ((string)ViewData["Role"] == "Admin")
+                @if (customer.Role == "Admin")
                 {
-                        <a class="nav-item nav-link border-start" asp-action="Verify">Verify</a>
-                        <a class="nav-item nav-link" asp-action="Summary">Summary</a>
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" id="adminDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin Actions
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="adminDropdown">
+                        <a class="dropdown-item" asp-action="Verify">Members</a>
+                        <a class="dropdown-item" asp-action="Summary">Order Summary</a>
+                    </div>
+                </div>
                 }
                 @if ((string)ViewData["Role"] == "Employee")
                 {
-                        <a class="nav-item nav-link border-start" asp-action="Summary">Summary</a>
+                    <a class="nav-item nav-link border-start" asp-action="Summary">Order Summary</a>
                 }
             </div>
         </div>
