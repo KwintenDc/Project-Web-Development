@@ -41,12 +41,13 @@
                         Admin Actions
                     </a>
                     <div class="dropdown-menu" aria-labelledby="adminDropdown">
-                        <a class="dropdown-item" asp-action="Verify">Members</a>
                         <a class="dropdown-item" asp-action="Summary">Order Summary</a>
+                        <a class="dropdown-item" asp-action="OrderAdmin">Edit Orders</a>
+                        <a class="dropdown-item" asp-action="Verify">Members</a>
                     </div>
                 </div>
                 }
-                @if ((string)ViewData["Role"] == "Employee")
+                @if (customer.Role == "Employee")
                 {
                     <a class="nav-item nav-link border-start" asp-action="Summary">Order Summary</a>
                 }

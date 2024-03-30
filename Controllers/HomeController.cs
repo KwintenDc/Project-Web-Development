@@ -335,7 +335,7 @@ namespace Project_WebDev.Controllers
             }
             if (currentCustomer != null)
                 ViewBag.Customer = currentCustomer;
-            if (currentCustomer != null && currentCustomer.Role == "Admin")
+            if (currentCustomer != null && (currentCustomer.Role == "Admin" || currentCustomer.Role == "Employee"))
             {
                 var orders = _context.Orders
                     .Include(o => o.Customer)
@@ -429,10 +429,72 @@ namespace Project_WebDev.Controllers
                 return RedirectToAction("Index");
             
         }
-        public IActionResult ProductsAdmin()
+        public IActionResult OrderAdmin()
         {
-            return View();
+            var currentCustomerJson = HttpContext.Session.GetString("CurrentCustomer");
+            if (!string.IsNullOrEmpty(currentCustomerJson))
+            {
+                currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
+            }
+            if (currentCustomer != null)
+                ViewBag.Customer = currentCustomer;
+
+            if (currentCustomer != null && currentCustomer.Role == "Admin")
+            {
+                var orders = _context.Orders
+                    .Include(o => o.Customer)
+                    .Include(o => o.OrderDetails)
+                    .ThenInclude(od => od.Item)
+                    //.Where(o => o.OrderFullFilled != null)
+                    .ToList();
+                return View(orders);
+            }
+            else
+                return RedirectToAction("Login");
         }
+
+        [HttpPost]
+        public IActionResult UpdateQuantityAdmin(int orderDetailId, int quantity)
+        {
+            var orderDetail = _context.OrderDetails.FirstOrDefault(od => od.Id == orderDetailId);
+
+            if (orderDetail == null)
+            {
+                return NotFound();
+            }
+
+            orderDetail.Quantity = quantity;
+
+            _context.SaveChanges();
+
+            double totalPrice = orderDetail.Quantity * orderDetail.Item.Price;
+
+            return Json(new { totalPrice });
+        }
+
+        [HttpPost]
+        public IActionResult DeleteSelectedOrders(List<int> selectedOrderIds)
+        {
+
+            foreach (int orderId in selectedOrderIds)
+            {
+                var order = _context.Orders.FirstOrDefault(o => o.Id == orderId);
+                if (order != null)
+                {
+                    _context.Orders.Remove(order);
+                    _context.OrderDetails.RemoveRange(order.OrderDetails);
+                    _context.SaveChanges();
+                }
+            }
+            return Ok(new { message = "Selected orders deleted successfully" });
+        }
+
+
+        // TODOKWINTEN : View voor de productsadmin pagina die de admin toe laat om de prijs van de producten aan te passen.
+        // TODOKWINTEN : Method die hierbij ^ helpt.
+        // TODOKWINTEN : Passwords hashen in de database (link is opgeslaan).
+        // TODOKWINTEN : Purge van alle orders om 14u30 (indien de site actief is) -> OPT
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

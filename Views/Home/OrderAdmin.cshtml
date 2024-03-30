@@ -1,5 +1,53 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<Project_WebDev.Models.Order>
+@using Project_WebDev.Models
+
+<div class="container mt-5">
+    <h1>Order Management</h1>
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Total Amount</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr id="OrderIdTable-@order.Id">
+                    <td><input type="checkbox" class="order-checkbox" data-order-id="@order.Id"></td> 
+                    <td>@order.Customer.Email</td> 
+                    <td id="total-amount-@order.Id">€@Math.Round(order.OrderDetails.Sum(od => od.Quantity * od.Item.Price))</td>
+                    <td>
+                        <button class="btn btn-primary mr-2 edit-btn">Edit</button>
+                        <button class="btn btn-danger delete-btn">Delete</button>
+                    </td>
+                </tr>
+                <tr class="order-details" id="OrderId-@order.Id" style="display: none;">
+                    <td colspan="4">
+                        <div class="mt-3 border p-3 bg-light">
+                            <h4>Order Details</h4>
+
+                    @foreach (var detail in order.OrderDetails)
+                    {
+                        <p>Item: @detail.Item.Name</p> 
+                        <div class="form-group">
+                            <label>Quantity:</label>
+                            <input type="number" class="form-control quantity-input" value="@detail.Quantity" data-orderdetail-id="@detail.Id" />
+                        </div>
+                                <p>Total Price: €<span id="@detail.Id">@(Math.Round(detail.Quantity * detail.Item.Price, 2))</span></p>
+                        <hr />
+                    }
+                        </div>
+                    </td>
+                </tr>
+    }
+        </tbody>
+    </table>
+    <div class="text-right mt-3">
+        <button class="btn btn-danger" id="delete-selected-btn">Delete Selected Orders</button>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/js/orderadmin.js"></script>

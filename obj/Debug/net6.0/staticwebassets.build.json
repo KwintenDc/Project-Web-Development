@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ElbBoTc+ztX9nHwaKdof4EAVeqH0TkuYFo7xC6UrLq8=",
+  "Hash": "cGAyjeTipb56cnHmmW09AqavPujQpCNtUrCW9e9Kyb0=",
   "Source": "Project WebDev",
   "BasePath": "_content/Project WebDev",
   "Mode": "Default",
@@ -1256,6 +1256,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\cart.js"
+    },
+    {
+      "Identity": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\js\\orderadmin.js",
+      "SourceId": "Project WebDev",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\",
+      "BasePath": "_content/Project WebDev",
+      "RelativePath": "js/orderadmin.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\orderadmin.js"
     },
     {
       "Identity": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\js\\shop.js",
