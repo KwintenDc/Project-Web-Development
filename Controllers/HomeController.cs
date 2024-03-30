@@ -486,7 +486,7 @@ namespace Project_WebDev.Controllers
                     .Include(o => o.Customer)
                     .Include(o => o.OrderDetails)
                     .ThenInclude(od => od.Item)
-                    //.Where(o => o.OrderFullFilled != null)
+                    .Where(o => o.OrderFullFilled != null)
                     .ToList();
                 return View(orders);
             }
@@ -553,7 +553,6 @@ namespace Project_WebDev.Controllers
         [HttpPost]
         public IActionResult UpdateItemPrice(int itemId, string newPrice)
         {
-            // Find the item by its ID
             var item = _context.Items.FirstOrDefault(i => i.Id == itemId);
 
             if (item == null)
@@ -567,10 +566,6 @@ namespace Project_WebDev.Controllers
 
             return Ok(); 
         }
-
-        // TODOKWINTEN : Passwords hashen in de database (link is opgeslaan).
-        // TODOKWINTEN : Purge van alle orders om 14u30 (indien de site actief is) -> OPT
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
