@@ -11,6 +11,9 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Security.Cryptography;
 using System.Text.Json;
+using System.Security.Cryptography;
+using System.Text;
+
 
 namespace Project_WebDev.Controllers
 {
@@ -75,13 +78,37 @@ namespace Project_WebDev.Controllers
                 ViewBag.Customer = currentCustomer;
 
             var customer = _context.Customers.FirstOrDefault(c => c.Email == email);
-            var passwordDb = _context.Customers.FirstOrDefault(c => c.Password == password);
 
-            if ((customer != null) && (passwordDb != null))
+            if (customer != null)
             {
-                HttpContext.Session.SetString("CurrentCustomer", JsonSerializer.Serialize(customer));
+                // Verify the hashed password
+                byte[] hashBytes = Convert.FromBase64String(customer.Password);
+                byte[] salt = new byte[16];
+                Array.Copy(hashBytes, 0, salt, 0, 16);
+                var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100000);
+                byte[] hash = pbkdf2.GetBytes(20);
 
-                return RedirectToAction("Shop", "Home");
+                // Compare the hashed password
+                bool passwordVerified = true;
+                for (int i = 0; i < 20; i++)
+                {
+                    if (hashBytes[i + 16] != hash[i])
+                    {
+                        passwordVerified = false;
+                        break;
+                    }
+                }
+
+                if (passwordVerified)
+                {
+                    HttpContext.Session.SetString("CurrentCustomer", JsonSerializer.Serialize(customer));
+                    return RedirectToAction("Shop", "Home");
+                }
+                else
+                {
+                    string err = "Incorrect email or password";
+                    return View("Login", err);
+                }
             }
             else
             {
@@ -121,13 +148,23 @@ namespace Project_WebDev.Controllers
                 return View("Register", err);
             }
 
-            Customer customer = new ()
+            // Hash the password before saving
+            byte[] salt;
+            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100000);
+            byte[] hash = pbkdf2.GetBytes(20);
+            byte[] hashBytes = new byte[36];
+            Array.Copy(salt, 0, hashBytes, 0, 16);
+            Array.Copy(hash, 0, hashBytes, 16, 20);
+            string hashedPassword = Convert.ToBase64String(hashBytes);
+
+            Customer customer = new()
             {
                 FirstName = firstname,
                 LastName = lastname,
                 Email = email,
                 Phone = number,
-                Password = password 
+                Password = hashedPassword // Save hashed password
             };
 
             _context.Customers.Add(customer);
@@ -164,6 +201,10 @@ namespace Project_WebDev.Controllers
             }   
             if (currentCustomer != null) 
             {
+                if(currentCustomer.Role == "Pending")
+                {
+                    return RedirectToAction("Index", "Home");
+                }
                 ViewBag.Customer = currentCustomer;
                 if (order == "asc")
                 {
@@ -489,9 +530,44 @@ namespace Project_WebDev.Controllers
             return Ok(new { message = "Selected orders deleted successfully" });
         }
 
+        public IActionResult ProductsAdmin()
+        {
+            var currentCustomerJson = HttpContext.Session.GetString("CurrentCustomer");
+            if (!string.IsNullOrEmpty(currentCustomerJson))
+            {
+                currentCustomer = JsonSerializer.Deserialize<Customer>(currentCustomerJson);
+            }
+            if (currentCustomer != null)
+                ViewBag.Customer = currentCustomer;
 
-        // TODOKWINTEN : View voor de productsadmin pagina die de admin toe laat om de prijs van de producten aan te passen.
-        // TODOKWINTEN : Method die hierbij ^ helpt.
+            if (currentCustomer != null && currentCustomer.Role == "Admin")
+            {
+                var items = _context.Items
+                    .ToList();
+                return View(items);
+            }
+            else
+                return RedirectToAction("Login");
+        }
+
+        [HttpPost]
+        public IActionResult UpdateItemPrice(int itemId, string newPrice)
+        {
+            // Find the item by its ID
+            var item = _context.Items.FirstOrDefault(i => i.Id == itemId);
+
+            if (item == null)
+            {
+                return NotFound(); 
+            }
+
+            item.Price = Convert.ToDouble(newPrice.Replace(".",","));
+
+            _context.SaveChanges();
+
+            return Ok(); 
+        }
+
         // TODOKWINTEN : Passwords hashen in de database (link is opgeslaan).
         // TODOKWINTEN : Purge van alle orders om 14u30 (indien de site actief is) -> OPT
 

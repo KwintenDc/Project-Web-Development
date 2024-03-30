@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cGAyjeTipb56cnHmmW09AqavPujQpCNtUrCW9e9Kyb0=",
+  "Hash": "VbJdetysBO3VPhdYJBoqgoPy2PFik+PM1i/oJhDcBgQ=",
   "Source": "Project WebDev",
   "BasePath": "_content/Project WebDev",
   "Mode": "Default",
@@ -1273,6 +1273,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\orderadmin.js"
+    },
+    {
+      "Identity": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\js\\productadmin.js",
+      "SourceId": "Project WebDev",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\",
+      "BasePath": "_content/Project WebDev",
+      "RelativePath": "js/productadmin.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\productadmin.js"
     },
     {
       "Identity": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\js\\shop.js",

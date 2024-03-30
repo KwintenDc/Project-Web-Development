@@ -33,7 +33,10 @@
                 <a class="nav-item nav-link" asp-action="Shop">Shop</a>
                 <a class="nav-item nav-link" asp-action="About">About Us</a>
                 <a class="nav-item nav-link" asp-action="Contact">Contact</a>
-                <a class="nav-item nav-link" asp-action="Login">Login</a>
+                @if(customer.Email == "Guest")
+                {
+                    <a class="nav-item nav-link" asp-action="Login">Login</a>
+                }  
                 @if (customer.Role == "Admin")
                 {
                 <div class="dropdown">
@@ -43,6 +46,7 @@
                     <div class="dropdown-menu" aria-labelledby="adminDropdown">
                         <a class="dropdown-item" asp-action="Summary">Order Summary</a>
                         <a class="dropdown-item" asp-action="OrderAdmin">Edit Orders</a>
+                        <a class="dropdown-item" asp-action="ProductsAdmin">Edit Items</a>
                         <a class="dropdown-item" asp-action="Verify">Members</a>
                     </div>
                 </div>

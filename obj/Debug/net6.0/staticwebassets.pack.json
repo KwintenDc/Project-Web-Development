@@ -293,6 +293,10 @@
       "PackagePath": "staticwebassets\\js\\orderadmin.js"
     },
     {
+      "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\js\\productadmin.js",
+      "PackagePath": "staticwebassets\\js\\productadmin.js"
+    },
+    {
       "Id": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\js\\shop.js",
       "PackagePath": "staticwebassets\\js\\shop.js"
     },

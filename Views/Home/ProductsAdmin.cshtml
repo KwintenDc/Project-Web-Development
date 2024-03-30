@@ -1,1 +1,31 @@
-﻿
+﻿@model IEnumerable<Project_WebDev.Models.Item>
+<div class="container mt-5">
+        <h1>Products Administration</h1>
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th>Item Image</th>
+                    <th>Item Name</th>
+                    <th>Item Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                        <td><img src="@Url.Content($"~/{item.Image}")" alt="Item Image" style="max-width: 100px;"></td>
+                    <td>@item.Name</td>
+                    <td>
+                        <input type="number" class="form-control price-input" step="0.01" value=@item.Price.ToString("0.00").Replace(",",".") data-item-id="@item.Id">
+                    </td>
+                    <td>
+                        <button class="btn btn-primary update-price-btn" data-item-id="@item.Id">Update Price</button>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/js/productadmin.js"></script>
