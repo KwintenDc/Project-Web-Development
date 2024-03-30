@@ -2,41 +2,55 @@
     const container = document.getElementById("itemContainer");
     const shopSelector = document.querySelector(".shopBar");
 
+    const sortHighToLow = document.getElementById("sortHighToLow");
+    const sortLowToHigh = document.getElementById("sortLowToHigh");
+
     shopSelector.querySelectorAll(".nav-link").forEach(function (navItem) {
         navItem.addEventListener("click", function (event) {
             if (event.target.classList != "material-symbols-outlined") {
-                event.preventDefault();
+                if (event.target.id != "sortDropdown") {
+                    event.preventDefault();
 
-                document.querySelectorAll(".nav-link").forEach(function (item) {
-                    item.classList.remove("active");
-                });
+                    document.querySelectorAll(".nav-link").forEach(function (item) {
+                        item.classList.remove("active");
+                    });
 
-                this.classList.add("active");
+                    this.classList.add("active");
 
-                const itemType = this.getAttribute("data-type");
+                    const itemType = this.getAttribute("data-type");
 
-                if (itemType != null) {
-                    if (itemType != "All") {
-                        container.querySelectorAll(".itemDiv").forEach(function (row) {
-                            if (row.id === itemType) {
+                    if (itemType != null) {
+                        if (itemType != "All") {
+                            container.querySelectorAll(".itemDiv").forEach(function (row) {
+                                if (row.id === itemType) {
+                                    row.style.display = "block";
+                                } else {
+                                    row.style.display = "none";
+                                }
+                            });
+                        }
+                        else {
+                            container.querySelectorAll(".itemDiv").forEach(function (row) {
                                 row.style.display = "block";
-                            } else {
-                                row.style.display = "none";
-                            }
-                        });
+                            });
+                        }
                     }
-                    else {
-                        container.querySelectorAll(".itemDiv").forEach(function (row) {
-                            row.style.display = "block";
-                        });
+                }
+                else {
+                    var dropdownMenu = event.target;
+                    var isOpen = dropdownMenu.classList.contains("show");
+
+                    if (!isOpen) {
+                        dropdownMenu.classList.add("show");
+                    } else {
+                        dropdownMenu.classList.remove("show");
                     }
                 }
             }     
         });
     });
 
-    const sortHighToLow = document.getElementById("sortHighToLow");
-    const sortLowToHigh = document.getElementById("sortLowToHigh");
+
 
     sortHighToLow.addEventListener("click", function () {
         var urlParams = new URLSearchParams(window.location.search);

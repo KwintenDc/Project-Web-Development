@@ -382,7 +382,7 @@ namespace Project_WebDev.Controllers
                     .Include(o => o.Customer)
                     .Include(o => o.OrderDetails)
                     .ThenInclude(od => od.Item)
-                    //.Where(o => o.OrderFullFilled != null)
+                    .Where(o => o.OrderFullFilled != null)
                     .ToList();
 
                 var aggregatedOrderDetails = orders
