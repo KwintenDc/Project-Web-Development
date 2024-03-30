@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VbJdetysBO3VPhdYJBoqgoPy2PFik+PM1i/oJhDcBgQ=",
+  "Hash": "IVo6DzqZD8cIwlrkTk7i+K43f52gdAxxRvSPZXqQ/Qg=",
   "Source": "Project WebDev",
   "BasePath": "_content/Project WebDev",
   "Mode": "Default",
@@ -66,23 +66,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
-    },
-    {
-      "Identity": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\css\\styles.css",
-      "SourceId": "Project WebDev",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\",
-      "BasePath": "_content/Project WebDev",
-      "RelativePath": "css/styles.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styles.css"
     },
     {
       "Identity": "C:\\Users\\decle\\source\\repos\\Web Development\\Project WebDev\\wwwroot\\favicon.ico",
